@@ -3,78 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Anniversary ❤️</title>
+<title>Happy Anniversary Potti ❤️</title>
 
 <style>
-body{
-margin:0;
-padding:0;
-font-family:Arial, sans-serif;
-background:black;
-color:white;
-text-align:center;
-overflow:hidden;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    text-align: center;
+    color: white;
 }
 
-/* Lock Screen */
-#lock{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+/* Lock screen */
+#lockScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-input{
-padding:10px;
-border-radius:20px;
-border:none;
-margin-top:10px;
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 10px;
 }
 
-button{
-padding:10px 20px;
-border:none;
-border-radius:20px;
-margin-top:10px;
-background:#ff4d6d;
-color:white;
-cursor:pointer;
-font-weight:bold;
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 15px;
+    background: #ff4d6d;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Main */
-#main{
-display:none;
-padding-top:40px;
+#mainContent {
+    display: none;
+    padding-top: 40px;
 }
 
-img{
-width:280px;
-border-radius:20px;
-box-shadow:0 0 20px pink;
-margin-top:20px;
-}
-
-#letter{
-margin-top:20px;
-width:80%;
-margin:auto;
-font-size:20px;
-}
-
-.heart{
-position:absolute;
-color:pink;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-10vh);}
+img {
+    width: 300px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px white;
 }
 </style>
 </head>
@@ -82,64 +62,48 @@ animation:float 6s linear infinite;
 <body>
 
 <!-- LOCK SCREEN -->
-<div id="lock">
-<h2>Enter Our Special Date 💍</h2>
-<input type="password" id="password" placeholder="DDMMYYYY">
-<button onclick="unlock()">Unlock ❤️</button>
+<div id="lockScreen">
+    <h2>Enter Our Special Date 💍</h2>
+    <input type="password" id="password" placeholder="DDMMYYYY">
+    <button onclick="unlock()">Unlock ❤️</button>
 </div>
 
 <!-- MAIN CONTENT -->
-<div id="main">
-<h1>Happy Wedding Anniversary My Love ❤️</h1>
+<div id="mainContent">
+    <h1>Happy Wedding Anniversary My Love ❤️</h1>
 
-<img src="image.jpg">
+    <img src="photo.jpg" alt="Our Photo">
 
-<div id="letter">
-Thank you for coming into my life and making it brighter.
-You are best❤️
-</div>
-
+    <p style="width:80%; margin:auto; margin-top:20px; font-size:20px;">
+        From the moment we became one, my life became beautiful.
+       Thank you for being more understanding and supporting me in every step..
+    </p>
 </div>
 
 <!-- MUSIC -->
 <audio id="music" loop controls>
-   <source src="song.mp3" type="audio/mpeg">
+   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <script>
-
 function unlock() {
-var enteredPassword = document.getElementById("password").value;
 
-// CHANGE PASSWORD HERE
-if (enteredPassword === "14022014") {
+    var entered = document.getElementById("password").value;
 
-document.getElementById("lock").style.display = "none";
-document.getElementById("main").style.display = "block";
+    // CHANGE THIS PASSWORD TO YOUR DATE
+    if (entered === "14022014") {
 
-// PLAY MUSIC
-<button onclick="playMusic()">🎵 Play Song</button>
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+
+       <button onclick="playMusic()">🎵 Play Song</button>
 
 <audio id="music">
   <source src="mysong.mp3" type="audio/mpeg">
 </audio>
-});
-
-} else {
-alert("Wrong Date 😜 Try Again!");
+    } else {
+        alert("Wrong Date 😜 Try Again!");
+    }
 }
-}
-
-// Hearts animation
-function createHeart(){
-var heart = document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-document.body.appendChild(heart);
-setTimeout(function(){heart.remove();},6000);
-}
-setInterval(createHeart,500);
-
 </script>
 
 </body>
