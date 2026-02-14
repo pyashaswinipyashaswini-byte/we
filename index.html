@@ -131,8 +131,12 @@ Will You be my valentine? 💍❤️
 </div>
 
 <!-- MUSIC -->
-<audio id="music" loop controls style="display:none;">
-<source src="music.mp3" type="audio/mpeg">
+<audio id="music" loop controls>
+   <source src="mysong.mp3" type="audio/mpeg">
+  <button onclick="playMusic()">🎵 Play Song</button>
+
+<audio id="music">
+  <source src="mysong.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -150,7 +154,8 @@ alert("Wrong Date 😜");
 
 // Play Music
 function playMusic(){
-document.getElementById("music").play();
+   document.getElementById("music").play();
+}
 }
 
 // Photo Surprise
