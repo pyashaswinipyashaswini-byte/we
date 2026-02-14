@@ -150,7 +150,7 @@ opacity:0;
 
 <body>
 
-<div id="loading">LOVE YOU SOO MUCH POTTI.. 💖</div>
+<div id="loading">Love you potti... 💖</div>
 
 <div id="lock">
 <h2>Enter Our Special Date 💍</h2>
@@ -159,7 +159,7 @@ opacity:0;
 </div>
 
 <div id="main">
-<h1>Happy Wedding Anniversary My Wife❤️</h1>
+<h1>Happy Wedding Anniversary My wife❤️</h1>
 
 <img src="image.jpg">
 
@@ -170,20 +170,24 @@ opacity:0;
 <button onclick="fireworks()">Click For Magic 🎆</button>
 
 <div id="proposal">
-Will You  be my valentine? 💍❤️
+Will You be my valentine? 💍❤️
 </div>
 </div>
 
-<audio autoplay loop>
+<!-- FIXED MUSIC SECTION -->
+<audio id="bgMusic" loop>
 <source src="song.mp3" type="audio/mp3">
 </audio>
 
 <script>
-// PASSWORD
+
+// PASSWORD + MUSIC FIX
 function unlock(){
-if(document.getElementById("pass").value==="14022014"){  // CHANGE DATE
+if(document.getElementById("pass").value==="14022014"){  // CHANGE THIS
 document.getElementById("lock").style.display="none";
 document.getElementById("main").style.display="block";
+
+document.getElementById("bgMusic").play();  // MUSIC PLAYS HERE
 }
 else{
 alert("Wrong Date 😜");
@@ -191,7 +195,7 @@ alert("Wrong Date 😜");
 }
 
 // TYPEWRITER
-var text="Thank you for being more understanding me and supoorting me.❤️";
+var text="From the moment we said 'I do', my world became brighter. You are my dream, my peace, my forever. I choose you again and again, every single day. ❤️";
 var i=0;
 function type(){
 if(i<text.length){
@@ -203,14 +207,14 @@ setTimeout(type,50);
 setTimeout(type,4000);
 
 // LOVE COUNTER
-var start=new Date("Feb 14, 2023"); // CHANGE DATE
+var start=new Date("Feb 14, 2023");  // CHANGE DATE
 setInterval(function(){
 var now=new Date();
 var diff=now-start;
 var days=Math.floor(diff/(1000*60*60*24));
 var hours=Math.floor(diff/(1000*60*60));
 document.getElementById("counter").innerHTML=
-Thank you for coming into my life and making it beautifull ❤️";
+"We have loved each other for "+days+" days and "+hours+" hours ❤️";
 },1000);
 
 // HEARTS
@@ -236,7 +240,22 @@ setTimeout(()=>f.remove(),1000);
 }
 document.getElementById("proposal").style.display="block";
 }
+
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
