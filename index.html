@@ -1,203 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>for my wife ❤️</title>
+<title>Happy Wedding Anniversary ❤️</title>
 
 <style>
-body{
-margin:0;
-padding:0;
-font-family:Segoe UI, sans-serif;
-background:linear-gradient(45deg,#ff758c,#ff7eb3,#6a11cb);
-background-size:400% 400%;
-animation:bgMove 10s infinite alternate;
-color:white;
-text-align:center;
-overflow:hidden;
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  color: white;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-100%{background-position:100% 50%;}
+h1 {
+  margin-top: 40px;
+  font-size: 45px;
+  animation: glow 2s infinite alternate;
 }
 
-/* Lock Screen */
-#lock{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:10;
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px yellow; }
 }
 
-input{
-padding:10px;
-border-radius:20px;
-border:none;
-margin-top:10px;
+img {
+  width: 280px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 25px white;
+  transition: 1s;
 }
 
-button{
-padding:10px 20px;
-border:none;
-border-radius:20px;
-margin-top:15px;
-background:#ff4d6d;
-color:white;
-font-weight:bold;
-cursor:pointer;
+img:hover {
+  transform: scale(1.1);
 }
 
-/* Main */
-#main{
-display:none;
-padding-top:40px;
+.message {
+  margin: 30px;
+  font-size: 20px;
+  padding: 20px;
 }
 
-img{
-width:280px;
-border-radius:20px;
-box-shadow:0 0 25px white;
-margin-top:20px;
-cursor:pointer;
-transition:0.5s;
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  background: white;
+  color: #ff4b91;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-img:hover{
-transform:scale(1.05);
+button:hover {
+  background: yellow;
+  transform: scale(1.1);
 }
 
-/* Hidden surprise */
-#photoSurprise{
-display:none;
-font-size:22px;
-margin-top:20px;
-animation:glow 1.5s infinite alternate;
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
 }
 
-@keyframes glow{
-from{text-shadow:0 0 10px white;}
-to{text-shadow:0 0 25px yellow;}
-}
-
-/* Floating hearts */
-.heart{
-position:absolute;
-color:white;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-10vh);}
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-800px); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOCK SCREEN -->
-<div id="lock">
-<h2>Enter Our Special Date 💍</h2>
-<input type="password" id="pass" placeholder="DDMMYYYY">
-<button onclick="unlock()">Unlock ❤️</button>
+<h1>Happy Wedding Anniversary My Wife❤️</h1>
+
+<img src="YOUR_IMAGE_LINK_HERE" alt="Our Photo">
+
+<div class="message">
+  From the day you came into my life, everything became beautiful 💖<br>
+  You are my happiness, my strength, my forever.<br>
+  Thank you for loving me endlessly. ❤️<br><br>
+  I promise to love you more every single day 💍✨
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="main">
-<h1>Happy Wedding Anniversary My Love ❤️</h1>
+<button onclick="showSurprise()">Click For Special Surprise 🎁</button>
 
-<img src="photo.jpg" onclick="photoClick()" alt="Our Memory">
+<br><br>
 
-<div id="photoSurprise">
-You are the most beautiful chapter of my life ❤️  
-Every time I see this picture, I fall in love again 💖
-</div>
-
-<button onclick="playMusic()">🎵 Play Song</button>
-
-<button onclick="fireworks()">🎆 Big Surprise</button>
-
-<div id="proposal" style="display:none; font-size:26px; margin-top:20px;">
-Will You be my valentine? 💍❤️
-</div>
-
-</div>
-
-<!-- MUSIC -->
-<audio id="music" loop controls>
-   <source src="mysong.mp3" type="audio/mpeg">
-  <button onclick="playMusic()">🎵 Play Song</button>
-
-<audio id="music">
-  <source src="mysong.mp3" type="audio/mpeg">
+<audio controls autoplay loop>
+  <source src="https://files.catbox.moe/hzsg1t.mp3" type="audio/mp3">
 </audio>
 
 <script>
-
-// Unlock Function
-function unlock(){
-if(document.getElementById("pass").value==="14022014"){  // CHANGE DATE
-document.getElementById("lock").style.display="none";
-document.getElementById("main").style.display="block";
-}
-else{
-alert("Wrong Date 😜");
-}
-}
-
-// Play Music
-function playMusic(){
-   document.getElementById("music").play();
-}
-}
-
-// Photo Surprise
-function photoClick(){
-document.getElementById("photoSurprise").style.display="block";
+function showSurprise() {
+  alert("You are the best thing that ever happened to me ❤️\nForever Yours 💕");
 }
 
 // Floating Hearts
-function createHeart(){
-var heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-document.body.appendChild(heart);
-setTimeout(function(){heart.remove();},6000);
-}
-setInterval(createHeart,400);
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 20 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+  document.body.appendChild(heart);
 
-// Fireworks Surprise
-function fireworks(){
-for(let i=0;i<30;i++){
-let f=document.createElement("div");
-f.style.position="absolute";
-f.style.width="5px";
-f.style.height="5px";
-f.style.background="white";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*100+"vh";
-f.style.borderRadius="50%";
-f.style.animation="explode 1s forwards";
-document.body.appendChild(f);
-setTimeout(()=>f.remove(),1000);
-}
-document.getElementById("proposal").style.display="block";
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
 }
 
-// Firework animation
-var style=document.createElement('style');
-style.innerHTML="@keyframes explode{to{transform:scale(20);opacity:0;}}";
-document.head.appendChild(style);
-
+setInterval(createHeart, 500);
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
