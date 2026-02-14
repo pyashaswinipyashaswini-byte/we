@@ -3,36 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love you potti❤️</title>
+<title>for my wife ❤️</title>
 
 <style>
 body{
 margin:0;
 padding:0;
-font-family:'Segoe UI',sans-serif;
-overflow:hidden;
-background:black;
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(45deg,#ff758c,#ff7eb3,#6a11cb);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
 color:white;
 text-align:center;
+overflow:hidden;
 }
 
-/* Loading Screen */
-#loading{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:28px;
-z-index:20;
-animation:fadeOut 4s forwards;
-animation-delay:3s;
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
 }
 
 /* Lock Screen */
@@ -45,7 +33,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-z-index:15;
+z-index:10;
 }
 
 input{
@@ -59,133 +47,99 @@ button{
 padding:10px 20px;
 border:none;
 border-radius:20px;
-margin-top:10px;
+margin-top:15px;
 background:#ff4d6d;
 color:white;
-cursor:pointer;
 font-weight:bold;
+cursor:pointer;
 }
 
 /* Main */
 #main{
 display:none;
 padding-top:40px;
-animation:fadeIn 2s forwards;
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
 }
 
 img{
 width:280px;
 border-radius:20px;
-box-shadow:0 0 30px pink;
+box-shadow:0 0 25px white;
 margin-top:20px;
-animation:zoom 4s infinite alternate;
+cursor:pointer;
+transition:0.5s;
 }
 
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.08);}
+img:hover{
+transform:scale(1.05);
 }
 
-#letter{
-margin-top:20px;
-width:80%;
-margin-left:auto;
-margin-right:auto;
-min-height:80px;
-font-size:20px;
-}
-
-#counter{
-margin-top:15px;
-font-size:20px;
-}
-
-#proposal{
+/* Hidden surprise */
+#photoSurprise{
 display:none;
-font-size:26px;
+font-size:22px;
 margin-top:20px;
 animation:glow 1.5s infinite alternate;
 }
 
 @keyframes glow{
 from{text-shadow:0 0 10px white;}
-to{text-shadow:0 0 25px pink;}
+to{text-shadow:0 0 25px yellow;}
 }
 
-/* Hearts */
+/* Floating hearts */
 .heart{
 position:absolute;
-color:pink;
+color:white;
 animation:float 6s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh);opacity:1;}
-100%{transform:translateY(-10vh);opacity:0;}
-}
-
-/* Fireworks */
-.firework{
-position:absolute;
-width:5px;
-height:5px;
-background:white;
-border-radius:50%;
-animation:explode 1s ease-out forwards;
-}
-
-@keyframes explode{
-to{
-transform:scale(20);
-opacity:0;
-}
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div id="loading">Happy wedding anniversary 💖</div>
-
+<!-- LOCK SCREEN -->
 <div id="lock">
 <h2>Enter Our Special Date 💍</h2>
 <input type="password" id="pass" placeholder="DDMMYYYY">
 <button onclick="unlock()">Unlock ❤️</button>
 </div>
 
+<!-- MAIN CONTENT -->
 <div id="main">
-<h1>Happy Wedding Anniversary Potti ❤️</h1>
+<h1>Happy Wedding Anniversary My Love ❤️</h1>
 
-<img src="image.jpg">
+<img src="photo.jpg" onclick="photoClick()" alt="Our Memory">
 
-<div id="letter"></div>
-
-<div id="counter"></div>
-
-<button onclick="fireworks()">Click For Magic 🎆</button>
-
-<div id="proposal">
-Will you be my valentine? 💍❤️
-</div>
+<div id="photoSurprise">
+You are the most beautiful chapter of my life ❤️  
+Every time I see this picture, I fall in love again 💖
 </div>
 
 <button onclick="playMusic()">🎵 Play Song</button>
 
-<audio id="music">
-  <source src="music.mp3" type="audio/mpeg">
+<button onclick="fireworks()">🎆 Big Surprise</button>
+
+<div id="proposal" style="display:none; font-size:26px; margin-top:20px;">
+Will You be my valentine? 💍❤️
+</div>
+
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop controls style="display:none;">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
+
 <script>
-    function playMusic(){
-   document.getElementById("music").play();
-}
-// PASSWORD
+
+// Unlock Function
 function unlock(){
-if(document.getElementById("pass").value==="14022023"){  // CHANGE DATE
+if(document.getElementById("pass").value==="14022014"){  // CHANGE DATE
 document.getElementById("lock").style.display="none";
 document.getElementById("main").style.display="block";
 }
@@ -194,52 +148,50 @@ alert("Wrong Date 😜");
 }
 }
 
-// TYPEWRITER
-var text="Thank you for coming into my life and being more understanding. ❤️";
-var i=0;
-function type(){
-if(i<text.length){
-document.getElementById("letter").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,50);
+// Play Music
+function playMusic(){
+document.getElementById("music").play();
 }
+
+// Photo Surprise
+function photoClick(){
+document.getElementById("photoSurprise").style.display="block";
 }
-setTimeout(type,4000);
 
-// LOVE COUNTER
-var start=new Date("Feb 14, 2014"); // CHANGE DATE
-setInterval(function(){
-var now=new Date();
-var diff=now-start;
-var days=Math.floor(diff/(1000*60*60*24));
-var hours=Math.floor(diff/(1000*60*60));
-document.getElementById("counter").innerHTML=
-"Thank you for being more understanding of me and supporting me❤️";
-},1000);
-
-// HEARTS
-function heart(){
-var h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),6000);
+// Floating Hearts
+function createHeart(){
+var heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+setTimeout(function(){heart.remove();},6000);
 }
-setInterval(heart,400);
+setInterval(createHeart,400);
 
-// FIREWORKS
+// Fireworks Surprise
 function fireworks(){
 for(let i=0;i<30;i++){
 let f=document.createElement("div");
-f.className="firework";
+f.style.position="absolute";
+f.style.width="5px";
+f.style.height="5px";
+f.style.background="white";
 f.style.left=Math.random()*100+"vw";
 f.style.top=Math.random()*100+"vh";
+f.style.borderRadius="50%";
+f.style.animation="explode 1s forwards";
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),1000);
 }
 document.getElementById("proposal").style.display="block";
 }
+
+// Firework animation
+var style=document.createElement('style');
+style.innerHTML="@keyframes explode{to{transform:scale(20);opacity:0;}}";
+document.head.appendChild(style);
+
 </script>
 
 </body>
