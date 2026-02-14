@@ -3,106 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Anniversary Potti ❤️</title>
+<title>Love you potti❤️</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    text-align: center;
-    color: white;
+body{
+margin:0;
+padding:0;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+background:black;
+color:white;
+text-align:center;
 }
 
-/* Lock screen */
-#lockScreen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Loading Screen */
+#loading{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+z-index:20;
+animation:fadeOut 4s forwards;
+animation-delay:3s;
 }
 
-input {
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    margin-top: 10px;
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
 }
 
-button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    margin-top: 15px;
-    background: #ff4d6d;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+/* Lock Screen */
+#lock{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:15;
 }
 
-#mainContent {
-    display: none;
-    padding-top: 40px;
+input{
+padding:10px;
+border-radius:20px;
+border:none;
+margin-top:10px;
 }
 
-img {
-    width: 300px;
-    border-radius: 20px;
-    margin-top: 20px;
-    box-shadow: 0 0 20px white;
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+margin-top:10px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* Main */
+#main{
+display:none;
+padding-top:40px;
+animation:fadeIn 2s forwards;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+img{
+width:280px;
+border-radius:20px;
+box-shadow:0 0 30px pink;
+margin-top:20px;
+animation:zoom 4s infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+
+#letter{
+margin-top:20px;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+min-height:80px;
+font-size:20px;
+}
+
+#counter{
+margin-top:15px;
+font-size:20px;
+}
+
+#proposal{
+display:none;
+font-size:26px;
+margin-top:20px;
+animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px white;}
+to{text-shadow:0 0 25px pink;}
+}
+
+/* Hearts */
+.heart{
+position:absolute;
+color:pink;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* Fireworks */
+.firework{
+position:absolute;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+to{
+transform:scale(20);
+opacity:0;
+}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOCK SCREEN -->
-<div id="lockScreen">
-    <h2>Enter Our Special Date 💍</h2>
-    <input type="password" id="password" placeholder="DDMMYYYY">
-    <button onclick="unlock()">Unlock ❤️</button>
+<div id="loading">Happy wedding anniversary 💖</div>
+
+<div id="lock">
+<h2>Enter Our Special Date 💍</h2>
+<input type="password" id="pass" placeholder="DDMMYYYY">
+<button onclick="unlock()">Unlock ❤️</button>
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="mainContent">
-    <h1>Happy Wedding Anniversary My Love ❤️</h1>
+<div id="main">
+<h1>Happy Wedding Anniversary My Forever ❤️</h1>
 
-    <img src="photo.jpg" alt="Our Photo">
+<img src="image.jpg">
 
-    <p style="width:80%; margin:auto; margin-top:20px; font-size:20px;">
-        From the moment we became one, my life became beautiful.
-       Thank you for being more understanding and supporting me in every step..
-    </p>
+<div id="letter"></div>
+
+<div id="counter"></div>
+
+<button onclick="fireworks()">Click For Magic 🎆</button>
+
+<div id="proposal">
+Will you be my valentine? 💍❤️
+</div>
 </div>
 
-<!-- MUSIC -->
-<audio id="music" loop controls>
-   <source src="music.mp3" type="audio/mpeg">
-</audio>
-<script>
-function unlock() {
-
-    var entered = document.getElementById("password").value;
-
-    // CHANGE THIS PASSWORD TO YOUR DATE
-    if (entered === "14022014") {
-
-        document.getElementById("lockScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-
-     <button onclick="playMusic()">🎵 Play Song</button>
+<button onclick="playMusic()">🎵 Play Song</button>
 
 <audio id="music">
-  <source src="mysong.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
-    } else {
-        alert("Wrong Date 😜 Try Again!");
-    }
+<script>
+    function playMusic(){
+   document.getElementById("music").play();
+}
+// PASSWORD
+function unlock(){
+if(document.getElementById("pass").value==="14022023"){  // CHANGE DATE
+document.getElementById("lock").style.display="none";
+document.getElementById("main").style.display="block";
+}
+else{
+alert("Wrong Date 😜");
+}
+}
+
+// TYPEWRITER
+var text="Thank you for coming into my life and being more understanding. ❤️";
+var i=0;
+function type(){
+if(i<text.length){
+document.getElementById("letter").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,50);
+}
+}
+setTimeout(type,4000);
+
+// LOVE COUNTER
+var start=new Date("Feb 14, 2014"); // CHANGE DATE
+setInterval(function(){
+var now=new Date();
+var diff=now-start;
+var days=Math.floor(diff/(1000*60*60*24));
+var hours=Math.floor(diff/(1000*60*60));
+document.getElementById("counter").innerHTML=
+"We have loved each other for "+days+" days and "+hours+" hours ❤️";
+},1000);
+
+// HEARTS
+function heart(){
+var h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+}
+setInterval(heart,400);
+
+// FIREWORKS
+function fireworks(){
+for(let i=0;i<30;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1000);
+}
+document.getElementById("proposal").style.display="block";
 }
 </script>
 
